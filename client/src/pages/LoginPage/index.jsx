@@ -6,15 +6,14 @@ import "./styles.css";
 
 const LoginPage = () => {
 
-    const { authenticated, login } = useContext(AuthContext);
+    const { authenticated, loginFunc } = useContext(AuthContext);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("submit", { email, password })
-        login(email, password);
+        loginFunc(email, password);
     }
 
     return (
@@ -26,7 +25,7 @@ const LoginPage = () => {
                 <fieldset className="login-form-field">
                     <label htmlFor="login-email">Email:</label>
                     <input 
-                        type="login-email" 
+                        type="email" 
                         name="login-email" 
                         id="login-email" 
                         className="login-input"
