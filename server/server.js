@@ -11,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/users", require("./routes/usersRoutes"));
+app.use("/categories", require("./routes/categoriesRoutes"));
 
 app.use((err, req, res, next) => {
     console.log(err.stack);
