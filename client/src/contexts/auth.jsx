@@ -32,18 +32,17 @@ export const AuthProvider = ({children}) => {
             && password !== ""
         ) {
             let logged = await login(email, password);
-            if (logged.data === true) {
+            if (logged.data.is_logged === true) {
 
-                const loggedUser = {
-                    id: '123',
-                    email,
-                };
+                const loggedUser = logged.data.userData;
 
                 localStorage.setItem('user', JSON.stringify(loggedUser));
 
                 setUser(loggedUser);
 
-                navigate("/dashboard");
+                navigate("/dashboard", {
+                    userLogged: loggedUser
+                });
             } else {
                 alert("Verifique os campos e tente novamente");
             }

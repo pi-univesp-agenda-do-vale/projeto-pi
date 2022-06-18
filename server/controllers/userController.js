@@ -31,8 +31,8 @@ exports.login = async (req, res, next) => {
     let user = new User(); 
     let logged = await user.login(usuario_email, usuario_senha);
 
-    if (logged) {
-        res.send(true);
+    if (logged.is_logged) {
+        res.send(logged);
     } else {
         res.send(false);
     }
