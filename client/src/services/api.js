@@ -12,6 +12,10 @@ export const addCategory = async(categoria_nome) => {
     return api.post("/categories", {categoria_nome})
 }
 
+export const addEvent = async (evento_data, evento_hora, evento_local, evento_descricao_resumo, evento_duracao, evento_valor, evento_descricao, evento_tema, evento_patrocinado, evento_usuario_id, evento_categoria_id, evento_cidade, evento_titulo) => {
+    return api.post("/events", { evento_data, evento_hora, evento_local, evento_descricao_resumo, evento_duracao, evento_valor, evento_descricao, evento_tema, evento_patrocinado, evento_usuario_id, evento_categoria_id, evento_cidade, evento_titulo });
+}
+
 export const login = async (usuario_email, usuario_senha) => {
     return api.post("/users/login", { usuario_email, usuario_senha })
 }

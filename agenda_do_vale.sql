@@ -28,7 +28,7 @@ CREATE TABLE `categoria` (
   `categoria_id` int NOT NULL AUTO_INCREMENT,
   `categoria_nome` varchar(45) NOT NULL,
   PRIMARY KEY (`categoria_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `categoria` (
 
 LOCK TABLES `categoria` WRITE;
 /*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
-INSERT INTO `categoria` VALUES (1,'Show'),(2,'Teatro');
+INSERT INTO `categoria` VALUES (7,'Show'),(8,'Teatro');
 /*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,9 +51,11 @@ DROP TABLE IF EXISTS `evento`;
 CREATE TABLE `evento` (
   `evento_id` int NOT NULL AUTO_INCREMENT,
   `evento_data` varchar(45) NOT NULL,
+  `evento_titulo` varchar(45) NOT NULL,
   `evento_hora` varchar(45) NOT NULL,
   `evento_local` varchar(45) NOT NULL,
   `evento_descricao_resumo` varchar(45) NOT NULL,
+  `evento_cidade` varchar(45) NOT NULL,
   `evento_duracao` varchar(45) DEFAULT NULL,
   `evento_valor` varchar(45) DEFAULT NULL,
   `evento_descricao` varchar(500) DEFAULT NULL,
@@ -66,7 +68,7 @@ CREATE TABLE `evento` (
   KEY `evento_categoria_id` (`evento_categoria_id`),
   CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`evento_usuario_id`) REFERENCES `usuario` (`usuario_id`),
   CONSTRAINT `evento_ibfk_2` FOREIGN KEY (`evento_categoria_id`) REFERENCES `categoria` (`categoria_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,6 +77,7 @@ CREATE TABLE `evento` (
 
 LOCK TABLES `evento` WRITE;
 /*!40000 ALTER TABLE `evento` DISABLE KEYS */;
+INSERT INTO `evento` VALUES (6,'2022-06-20','Virada Cultural','23:00','Praça Beira Rio','Shows','Registro','01:00','Gratuito','Shows com bandas','Música','Não',3,7);
 /*!40000 ALTER TABLE `evento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,7 +98,7 @@ CREATE TABLE `usuario` (
   `usuario_data_nascimento` varchar(45) NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`usuario_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +107,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (3,'Admin','Admin','teste@teste','$2a$10$d5juW5nGF/UT97hF6JUrdO7b5h9osS3nb8XZ.XNtfsMV52I5YII9O','123.456.789-00','01/01/1990','2022-06-14 23:56:30'),(15,'Raphael','Reis ','admin@123','$2b$10$FxAP1OSD2et0TI6AROifmeUIHhUraXlcLpp0.u2INRxF4YMVg6iT2','123.456.789-00','2022-06-14','2022-06-15 01:00:36');
+INSERT INTO `usuario` VALUES (3,'Admin','Admin','teste@teste','$2a$10$d5juW5nGF/UT97hF6JUrdO7b5h9osS3nb8XZ.XNtfsMV52I5YII9O','123.456.789-00','01/01/1990','2022-06-14 23:56:30');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -117,4 +120,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-14 22:01:59
+-- Dump completed on 2022-06-18  0:30:36
