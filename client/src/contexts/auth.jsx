@@ -40,9 +40,7 @@ export const AuthProvider = ({children}) => {
 
                 setUser(loggedUser);
 
-                navigate("/dashboard", {
-                    userLogged: loggedUser
-                });
+                navigate("/dashboard");
             } else {
                 alert("Verifique os campos e tente novamente");
             }
