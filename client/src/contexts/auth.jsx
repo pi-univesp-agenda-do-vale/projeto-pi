@@ -32,12 +32,9 @@ export const AuthProvider = ({children}) => {
             && password !== ""
         ) {
             let logged = await login(email, password);
-            if (logged.data === true) {
+            if (logged.data.is_logged === true) {
 
-                const loggedUser = {
-                    id: '123',
-                    email,
-                };
+                const loggedUser = logged.data.userData;
 
                 localStorage.setItem('user', JSON.stringify(loggedUser));
 

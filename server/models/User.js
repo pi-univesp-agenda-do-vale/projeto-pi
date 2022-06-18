@@ -48,15 +48,26 @@ class User{
     }
 
     async login(usuario_email, usuario_senha) {
+        let response = {
+            "is_logged": false,
+            "userData": {},
+        }
         let tryLogin = await this.getUserByEmail(usuario_email);
         if (tryLogin.length > 0) {
-            let logged = await bcrypt.compare(usuario_senha, tryLogin[0].usuario_senha);
-            console.log(logged);
+            tryLogin = tryLogin[0];
+            let logged = await bcrypt.compare(usuario_senha, tryLogin.usuario_senha);
+
             if (logged) {
-                return true;
+                let userData = {
+                    usuario_primeiro_nome: tryLogin.usuario_primeiro_nome,
+                    usuario_sobrenome: tryLogin.usuario_sobrenome,
+                    usuario_email: tryLogin.usuario_email,
+                };
+                response.is_logged = true;
+                response.userData = userData;
             }
         }
-        return false;
+        return response;
     }
 }
 
