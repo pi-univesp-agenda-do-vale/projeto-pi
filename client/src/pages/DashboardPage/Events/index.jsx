@@ -1,17 +1,21 @@
-import React, { useContext, useReducer, useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { AuthContext } from '../../../contexts/auth';
 
 import { addEvent } from '../../../services/api';
 
 const EventsPage = () => {
-    
+
+    const handleRadioBtn = e =>{
+        setPatrocinado(e.target.value);
+    }
 
     const { logout } = useContext(AuthContext);
-
     const handleLogout = () => {
         logout();
     }
+
+    let user = JSON.parse(localStorage.getItem('user'));
 
 	const [evento_data, setData] = useState("");
 	const [evento_hora, setHora] = useState("");
@@ -22,7 +26,7 @@ const EventsPage = () => {
 	const [evento_descricao, setDescricao] = useState("");
 	const [evento_tema, setTema] = useState("");
 	const [evento_patrocinado, setPatrocinado] = useState("");
-	const [evento_usuario_id, setUsuarioId] = useState("");
+	const evento_usuario_id = user.usuario_id;
 	const [evento_categoria_id, setCategoriaId] = useState("");
     const [evento_cidade, setCidade] = useState("");
     const [evento_titulo, setTitulo] = useState("");
@@ -40,7 +44,6 @@ const EventsPage = () => {
 			&& evento_descricao !== ""
 			&& evento_tema !== ""
 			&& evento_patrocinado !== ""
-			&& evento_usuario_id !== ""
 			&& evento_categoria_id !== ""
             && evento_cidade !== ""
             && evento_titulo !== ""
@@ -58,7 +61,6 @@ const EventsPage = () => {
 				setDescricao("");
 				setTema("");
 				setPatrocinado("");
-				setUsuarioId("");
 				setCategoriaId("");
                 setCidade("");
                 setTitulo("");
@@ -188,7 +190,6 @@ const EventsPage = () => {
 						rows="2" cols="40">
 					</textarea>    
                 </fieldset>
-
 				<fieldset>
                     <label htmlFor='evento_descricao'>Descrição:</label>
                     <textarea 
@@ -201,17 +202,16 @@ const EventsPage = () => {
 						rows="7" cols="80">
 					</textarea>
                 </fieldset>
-				<fieldset>
-
-                    {/*
+                <fieldset>
                     <label htmlFor='evento_patrocinado'>Evento Patrocinado: </label>
                     <input 
 					type='radio'
 					id='evento_patrocinado'
 					name='evento_patrocinado'
 					className='evento_patrocinado'
-					value="Sim"
-
+					value='Sim'
+                    checked={evento_patrocinado === 'Sim' ? true : false}
+                    onChange={handleRadioBtn}
                     />
                     <label htmlFor="evento_patrocinado">Sim</label>
 					<input 
@@ -219,23 +219,11 @@ const EventsPage = () => {
 					id='evento_patrocinado'
 					name='evento_patrocinado'
 					className='evento_patrocinado'
-					value="Não"
-                    
+					value='Não'
+                    checked={evento_patrocinado === 'Não' ? true : false}
+                    onChange={handleRadioBtn}
                     />
-					<label htmlFor="evento_patrocinado">Não</label>*/}
-
-
-                    
-                    <label htmlFor='evento_patrocinado'>Evento Patrocinado:</label>
-                    <input
-                        type='text'
-                        maxLength='3'
-                        name='evento_patrocinado'
-                        id='evento_patrocinado'
-                        className='evento_patrocinado'
-                        value={evento_patrocinado}
-                        onChange={(event) => setPatrocinado(event.target.value)}
-                />
+					<label htmlFor="evento_patrocinado">Não</label>             
 				</fieldset>
 				
 				{/*Preencher select com dados do db*/}
@@ -248,20 +236,6 @@ const EventsPage = () => {
                         className='evento_categoria_id'
                         value={evento_categoria_id}
                         onChange={(event) => setCategoriaId(event.target.value)}
-                    />
-                </fieldset>
-				
-				{/*Pegar usuario logado*/}
-				<fieldset>
-                    <label htmlFor='evento_usuario_id'>Usuário:</label>
-                    <input
-                        type='text'
-                        name='evento_usuario_id'
-                        id='evento_usuario_id'
-                        className='evento_usuario_id'
-                        value={evento_usuario_id}
-                        onChange={(event) => setUsuarioId(event.target.value)}
-						placeholder='Digite o local do evento'
                     />
                 </fieldset>
                 <fieldset>

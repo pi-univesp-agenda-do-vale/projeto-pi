@@ -2,7 +2,7 @@ const db = require('../config/db');
 
 class Event{
 
-    constructor(evento_data = "", evento_hora = "", evento_local = "", evento_descricao_resumo = "", evento_duracao = "", evento_valor = "", evento_descricao = "", evento_tema = "", evento_patrocinado = "", evento_usuario_id = "", evento_categoria_id = "", evento_cidade = "", evento_titulo = ""){
+    constructor(evento_data = "", evento_hora = "", evento_local = "", evento_descricao_resumo = "", evento_duracao = "", evento_valor = "", evento_descricao = "", evento_tema = "", evento_patrocinado = "", evento_usuario_id, evento_categoria_id = "", evento_cidade = "", evento_titulo = ""){
         this.evento_data = evento_data;
 		this.evento_hora = evento_hora;
 		this.evento_local = evento_local;

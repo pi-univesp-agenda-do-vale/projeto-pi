@@ -56,12 +56,12 @@ class User{
         if (tryLogin.length > 0) {
             tryLogin = tryLogin[0];
             let logged = await bcrypt.compare(usuario_senha, tryLogin.usuario_senha);
-
             if (logged) {
                 let userData = {
                     usuario_primeiro_nome: tryLogin.usuario_primeiro_nome,
                     usuario_sobrenome: tryLogin.usuario_sobrenome,
                     usuario_email: tryLogin.usuario_email,
+                    usuario_id: tryLogin.usuario_id,
                 };
                 response.is_logged = true;
                 response.userData = userData;

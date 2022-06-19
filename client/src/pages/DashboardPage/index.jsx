@@ -14,7 +14,8 @@ const DashboardPage = () => {
         
     return (
         <>
-            <h1>Olá, { user.usuario_primeiro_nome }</h1>
+            
+            <h1>Olá, { user.usuario_primeiro_nome } </h1>
             <button onClick={ handleLogout }>
                 Sair
             </button>
