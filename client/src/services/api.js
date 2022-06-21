@@ -16,6 +16,10 @@ export const addEvent = async (evento_data, evento_hora, evento_local, evento_de
     return api.post("/events", { evento_data, evento_hora, evento_local, evento_descricao_resumo, evento_duracao, evento_valor, evento_descricao, evento_tema, evento_patrocinado, evento_usuario_id, evento_categoria_id, evento_cidade, evento_titulo });
 }
 
+export const listEvents = async() => {
+    return api.get("/events", {});
+}
+
 export const login = async (usuario_email, usuario_senha) => {
     return api.post("/users/login", { usuario_email, usuario_senha })
 }
