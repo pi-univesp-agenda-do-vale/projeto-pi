@@ -19,3 +19,5 @@ export const addEvent = async (evento_data, evento_hora, evento_local, evento_de
 export const login = async (usuario_email, usuario_senha) => {
     return api.post("/users/login", { usuario_email, usuario_senha })
 }
+
+export default api;
