@@ -20,6 +20,10 @@ export const listEvents = async() => {
     return api.get("/events", {});
 }
 
+export const listCategories = async() => {
+    return api.get("/categories", {});
+}
+
 export const login = async (usuario_email, usuario_senha) => {
     return api.post("/users/login", { usuario_email, usuario_senha })
 }

@@ -71,7 +71,7 @@ const UsersPage = () => {
                 onSubmit={addUserFunc}
             >
                 <fieldset>
-                    <label htmlFor='usuario_primeiro_nome'>Nome:</label>
+                    <label htmlFor='usuario_primeiro_nome'>Nome: </label>
                     <input
                         type='text'
                         name='usuario_primeiro_nome'
@@ -83,7 +83,7 @@ const UsersPage = () => {
                     />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor='usuario_email'>E-mail:</label>
+                    <label htmlFor='usuario_email'>E-mail: </label>
                     <input
                         type='email'
                         name='usuario_email'
@@ -95,7 +95,7 @@ const UsersPage = () => {
                     />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor='usuario_senha'>Senha:</label>
+                    <label htmlFor='usuario_senha'>Senha: </label>
                     <input
                         type='password'
                         name='usuario_senha'
@@ -107,7 +107,7 @@ const UsersPage = () => {
                     />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor='usuario_cpf'>CPF:</label>
+                    <label htmlFor='usuario_cpf'>CPF: </label>
                     <input
                         type='text'
                         name='usuario_cpf'
@@ -115,11 +115,11 @@ const UsersPage = () => {
                         className='usuario_cpf'
                         value={usuario_cpf}
                         onChange={(event) => setCPF(event.target.value)}
-                        placeholder='Digite o cpf aqui'
+                        placeholder='Digite o CPF'
                     />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor='usuario_data_nascimento'>Data de Nascimento:</label>
+                    <label htmlFor='usuario_data_nascimento'>Data de Nascimento: </label>
                     <input
                         type='date'
                         name='usuario_data_nascimento'

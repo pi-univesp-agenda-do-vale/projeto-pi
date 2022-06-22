@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import EventCard from '../../components/EventCard';
 import { listEvents } from '../../services/api';
 
 function HomePage() {
@@ -26,7 +26,11 @@ function HomePage() {
 
             {
                 events.map((event, index) => (
-                    <p key={index}>{event.evento_titulo} ocorrerá na cidade de { event.evento_cidade }</p>
+                    <EventCard 
+                        index={index} 
+                        titulo={event.evento_titulo} 
+                        cidade={event.evento_cidade}>
+                    </EventCard>
                 ))
             }
             

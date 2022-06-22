@@ -48,7 +48,7 @@ const CategoryPage = () => {
                 onSubmit={addCategoryFunc}
             >
                 <fieldset>
-                    <label htmlFor='categoria_nome'>Nome:</label>
+                    <label htmlFor='categoria_nome'>Nome: </label>
                     <input
                         type='text'
                         name='categoria_nome'

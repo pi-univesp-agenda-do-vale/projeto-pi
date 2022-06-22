@@ -1,10 +1,25 @@
 import React, { useContext, useState } from 'react';
+import { useEffect } from 'react';
 
 import { AuthContext } from '../../../contexts/auth';
 
-import { addEvent } from '../../../services/api';
+import { addEvent, listCategories } from '../../../services/api';
 
 const EventsPage = () => {
+
+    const [checked, setChecked] = useState(true);
+
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        (async () => { 
+            const response = await listCategories();
+            setCategories(response.data[0]);
+            setLoading(false)
+        })();
+    }, []);
+
 
     const handleRadioBtn = e =>{
         setPatrocinado(e.target.value);
@@ -61,10 +76,11 @@ const EventsPage = () => {
 				setDescricao("");
 				setTema("");
 				setPatrocinado("");
-				setCategoriaId("");
                 setCidade("");
                 setTitulo("");
-				alert("Usuário cadastrado com sucesso!");
+                setCategoriaId("");
+                //Verificar porque não está setando o select para primeira opção
+				alert("Evento cadastrado com sucesso!");
 
             } else {
                 alert("Verifique os campos e tente novamente");
@@ -89,7 +105,7 @@ const EventsPage = () => {
                 onSubmit={addEventFunc}
             >
                 <fieldset>
-                    <label htmlFor='evento_titulo'>Título:</label>
+                    <label htmlFor='evento_titulo'>Título: </label>
                     <input
                         type='text'
                         name='evento_titulo'
@@ -101,7 +117,7 @@ const EventsPage = () => {
                     />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor='evento_data'>Data:</label>
+                    <label htmlFor='evento_data'>Data: </label>
                     <input
                         type='date'
                         name='evento_data'
@@ -110,7 +126,7 @@ const EventsPage = () => {
                         value={evento_data}
                         onChange={(event) => setData(event.target.value)}
                     />
-                    <label htmlFor='evento_hora'>Hora:</label>
+                    <label htmlFor='evento_hora'>Hora: </label>
                     <input
                         type='time'
                         name='evento_hora'
@@ -119,7 +135,7 @@ const EventsPage = () => {
                         value={evento_hora}
                         onChange={(event) => setHora(event.target.value)}
                     />
-                    <label htmlFor='evento_duracao'>Duração:</label>
+                    <label htmlFor='evento_duracao'>Duração: </label>
                     <input
                         type='time'
                         name='evento_duracao'
@@ -127,11 +143,10 @@ const EventsPage = () => {
                         className='evento_duracao'
                         value={evento_duracao}
                         onChange={(event) => setDuracao(event.target.value)}
-						placeholder='Digite a duração do evento'
                     />
                 </fieldset>
 				<fieldset>
-                    <label htmlFor='evento_local'>Local:</label>
+                    <label htmlFor='evento_local'>Local: </label>
                     <input
                         type='text'
                         name='evento_local'
@@ -141,7 +156,7 @@ const EventsPage = () => {
                         onChange={(event) => setLocal(event.target.value)}
 						placeholder='Digite o local do evento'
                     />
-                    <label htmlFor='evento_cidade'>Cidade:</label>
+                    <label htmlFor='evento_cidade'>Cidade: </label>
                     <input
                         type='text'
                         name='evento_cidade'
@@ -153,7 +168,7 @@ const EventsPage = () => {
                     />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor='evento_valor'>Valor:</label>
+                    <label htmlFor='evento_valor'>Valor: </label>
                     <input
                         type='text'
                         name='evento_valor'
@@ -162,12 +177,31 @@ const EventsPage = () => {
                         value={evento_valor}
                         onChange={(event) => setValor(event.target.value)}
 						placeholder='Digite o valor do evento'
+                        disabled={!checked}
                     />
+                    <label htmlFor='evento_valor'>
+                    Evento Gratuito
+                    <input
+                        type='checkbox'
+                        name='evento_valor'
+                        id='evento_valor'
+                        className='evento_valor'
+                        checked={!checked}
+                        onChange={() => {
+                            if(checked){
+                                setValor('Gratuito')
+                            }
+                            else {setValor('')}
+                        setChecked(!checked)
+                          }
+                       }
+                    />
+                  </label>
                 </fieldset>
-                {/*Criar checkbox para se for gratuito*/}
+                
 
                 <fieldset>
-                    <label htmlFor='evento_tema'>Tema:</label>
+                    <label htmlFor='evento_tema'>Tema: </label>
                     <input
                         type='text'
                         name='evento_tema'
@@ -179,7 +213,7 @@ const EventsPage = () => {
                     />
                 </fieldset>
 				<fieldset>
-                    <label htmlFor='evento_descricao_resumo'>Descrição Resumo:</label>
+                    <label htmlFor='evento_descricao_resumo'>Descrição Resumo: </label>
                     <textarea 
 						name='evento_descricao_resumo'
 						id='evento_descricao_resumo'
@@ -191,14 +225,14 @@ const EventsPage = () => {
 					</textarea>    
                 </fieldset>
 				<fieldset>
-                    <label htmlFor='evento_descricao'>Descrição:</label>
+                    <label htmlFor='evento_descricao'>Descrição: </label>
                     <textarea 
 						name='evento_descricao'
 						id='evento_descricao'
 						className='evento_descricao'
 						value={evento_descricao}
 						onChange={(event) => setDescricao(event.target.value)}
-						placeholder='Digite uma descrição sobre o evento'
+						placeholder='Digite uma descrição completa sobre o evento'
 						rows="7" cols="80">
 					</textarea>
                 </fieldset>
@@ -213,7 +247,7 @@ const EventsPage = () => {
                     checked={evento_patrocinado === 'Sim' ? true : false}
                     onChange={handleRadioBtn}
                     />
-                    <label htmlFor="evento_patrocinado">Sim</label>
+                    <label htmlFor="evento_patrocinado">Sim </label>
 					<input 
 					type='radio'
 					id='evento_patrocinado'
@@ -223,25 +257,27 @@ const EventsPage = () => {
                     checked={evento_patrocinado === 'Não' ? true : false}
                     onChange={handleRadioBtn}
                     />
-					<label htmlFor="evento_patrocinado">Não</label>             
+					<label htmlFor="evento_patrocinado">Não </label>             
 				</fieldset>
-				
-				{/*Preencher select com dados do db*/}
-				<fieldset>
-                    <label htmlFor='evento_categoria_id'>Categoria:</label>
-                    <input
-                        type='text'
+                <fieldset>
+                    <label htmlFor='evento_categoria_id'>Categoria: </label>
+                    <select
                         name='evento_categoria_id'
                         id='evento_categoria_id'
                         className='evento_categoria_id'
-                        value={evento_categoria_id}
-                        onChange={(event) => setCategoriaId(event.target.value)}
-                    />
+                        onChange={(event) => setCategoriaId(event.target.value)}>
+                            <option value="" disabled></option>
+                            {categories.map((category, index) => (
+                                <option key={index} value={category.categoria_id}> { category.categoria_nome } </option>
+                            ))
+                            }
+                    </select>
                 </fieldset>
                 <fieldset>
-                    <button type='submit'>Enviar</button>
+                    <button type='submit'>Adicionar</button>
                 </fieldset>
             </form>
+
             
         </>
     );
