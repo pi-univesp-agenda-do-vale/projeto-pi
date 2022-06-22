@@ -21,6 +21,6 @@ exports.getCategoryById = async (req, res, next) => {
     let category = new Category();
     category = await category.getCategoryById(id);
 
-    res.send(user);
+    res.send(category);
 }
 
