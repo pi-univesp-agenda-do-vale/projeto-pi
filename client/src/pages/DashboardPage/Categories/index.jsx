@@ -1,16 +1,10 @@
-import React, { useContext, useState } from 'react';
-
-import { AuthContext } from '../../../contexts/auth';
-
+import React, { useState } from 'react';
 import { addCategory } from '../../../services/api';
+import "./styles.css";
+import NavBar from '../../../components/NavBar';
+import SideBar from '../../../components/SideBar';
 
 const CategoryPage = () => {
-
-    const { logout } = useContext(AuthContext);
-
-    const handleLogout = () => {
-        logout();
-    }
 
     const [categoria_nome, setCategoria] = useState("");
 
@@ -26,23 +20,19 @@ const CategoryPage = () => {
             } else {
                 alert("Verifique os campos e tente novamente");
             }
-
             
         } else {
             alert("Verifique todos os campos e tente novamente");
         }
     }
 
-
-
-
     return (
-    <>
-    <h1>Dashboard</h1>
-            <button onClick={ handleLogout }>
-                Sair
-            </button>
-
+        <>
+        <NavBar />
+            <div className='divleft'>
+                <SideBar />
+            </div>
+            <div className='divright'>
             <h2>Adicionar categoria</h2>
             <form
                 onSubmit={addCategoryFunc}
@@ -63,8 +53,8 @@ const CategoryPage = () => {
                     <button type='submit'>Enviar</button>
                 </fieldset>
             </form>
-    
-    </>
+            </div>
+        </>
     )
 }
 

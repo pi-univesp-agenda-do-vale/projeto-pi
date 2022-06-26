@@ -1,16 +1,10 @@
-import React, { useContext, useState } from 'react';
-
-import { AuthContext } from '../../../contexts/auth';
-
+import React, { useState } from 'react';
+import NavBar from '../../../components/NavBar';
+import SideBar from '../../../components/SideBar';
 import { addUser } from '../../../services/api';
+import "./styles.css";
 
 const UsersPage = () => {
-
-    const { logout } = useContext(AuthContext);
-
-    const handleLogout = () => {
-        logout();
-    }
 
     const [usuario_email, setEmail] = useState("");
     const [usuario_senha, setPassword] = useState("");
@@ -60,13 +54,14 @@ const UsersPage = () => {
 
     return (
         <>
-            <h1>Dashboard</h1>
-            <button onClick={ handleLogout }>
-                Sair
-            </button>
+            <NavBar />
+            <div className='divleft'>
+                <SideBar></SideBar>
+            </div>
 
-            <h2>Adicionar usuário</h2>
-
+            <div className='divright'>
+                
+                <h2>Adicionar usuário</h2>
             <form
                 onSubmit={addUserFunc}
             >
@@ -133,7 +128,7 @@ const UsersPage = () => {
                     <button type='submit'>Enviar</button>
                 </fieldset>
             </form>
-            
+            </div>
         </>
     );
 }

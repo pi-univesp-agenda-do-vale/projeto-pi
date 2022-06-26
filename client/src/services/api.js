@@ -24,6 +24,10 @@ export const listCategories = async() => {
     return api.get("/categories", {});
 }
 
+export const listUsers = async() => {
+    return api.get("/users", {});
+}
+
 export const login = async (usuario_email, usuario_senha) => {
     return api.post("/users/login", { usuario_email, usuario_senha })
 }

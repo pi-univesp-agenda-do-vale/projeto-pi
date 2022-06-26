@@ -1,0 +1,14 @@
+.linavbar {
+  margin: 15px;
+  display: inline-block;
+}
+.navbarleft{
+  display: inline-block;
+  width: 85%;
+   
+ }
+.navbarright{
+  display: inline-block;
+  width: 15%;
+ }
+ 

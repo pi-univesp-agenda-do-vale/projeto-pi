@@ -1,9 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
-
-import { AuthContext } from '../../../contexts/auth';
-
 import { addEvent, listCategories } from '../../../services/api';
+import NavBar from '../../../components/NavBar';
+import "./styles.css";
+import SideBar from '../../../components/SideBar';
+
 
 const EventsPage = () => {
 
@@ -23,11 +24,6 @@ const EventsPage = () => {
 
     const handleRadioBtn = e =>{
         setPatrocinado(e.target.value);
-    }
-
-    const { logout } = useContext(AuthContext);
-    const handleLogout = () => {
-        logout();
     }
 
     let user = JSON.parse(localStorage.getItem('user'));
@@ -94,11 +90,12 @@ const EventsPage = () => {
 
     return (
         <>
-            <h1>Dashboard</h1>
-            <button onClick={ handleLogout }>
-                Sair
-            </button>
-
+            <NavBar />
+            <div className='divleft'>
+                <SideBar></SideBar>
+            </div>
+            <div className='divright'>
+            
             <h2>Adicionar evento</h2>
 
             <form
@@ -277,8 +274,10 @@ const EventsPage = () => {
                     <button type='submit'>Adicionar</button>
                 </fieldset>
             </form>
+                
+            </div>
 
-            
+                        
         </>
     );
 }
