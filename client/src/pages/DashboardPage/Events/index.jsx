@@ -11,13 +11,11 @@ const EventsPage = () => {
     const [checked, setChecked] = useState(true);
 
     const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         (async () => { 
             const response = await listCategories();
             setCategories(response.data[0]);
-            setLoading(false)
         })();
     }, []);
 
