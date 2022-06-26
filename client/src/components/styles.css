@@ -11,4 +11,30 @@
   display: inline-block;
   width: 15%;
  }
- 
+ .divTable{
+  width: 30%;
+  float: left;
+  margin: 10px;
+ }
+ .divTableImg{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ }
+.divTableTitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  font-size: 20px;
+}
+.divTableLocal{
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: right;
+  margin: 10px;
+  font-size: 14px;
+}

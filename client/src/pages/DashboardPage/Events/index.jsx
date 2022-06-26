@@ -94,7 +94,7 @@ const EventsPage = () => {
             </div>
             <div className='divright'>
             
-            <h2>Adicionar evento</h2>
+            <h2>Adicionar evento</h2><br />
 
             <form
                 onSubmit={addEventFunc}
@@ -121,7 +121,7 @@ const EventsPage = () => {
                         value={evento_data}
                         onChange={(event) => setData(event.target.value)}
                     />
-                    <label htmlFor='evento_hora'>Hora: </label>
+                    <label htmlFor='evento_hora'> Hora: </label>
                     <input
                         type='time'
                         name='evento_hora'
@@ -130,7 +130,7 @@ const EventsPage = () => {
                         value={evento_hora}
                         onChange={(event) => setHora(event.target.value)}
                     />
-                    <label htmlFor='evento_duracao'>Duração: </label>
+                    <label htmlFor='evento_duracao'> Duração: </label>
                     <input
                         type='time'
                         name='evento_duracao'
@@ -151,7 +151,7 @@ const EventsPage = () => {
                         onChange={(event) => setLocal(event.target.value)}
 						placeholder='Digite o local do evento'
                     />
-                    <label htmlFor='evento_cidade'>Cidade: </label>
+                    <label htmlFor='evento_cidade'> Cidade: </label>
                     <input
                         type='text'
                         name='evento_cidade'
@@ -174,8 +174,7 @@ const EventsPage = () => {
 						placeholder='Digite o valor do evento'
                         disabled={!checked}
                     />
-                    <label htmlFor='evento_valor'>
-                    Evento Gratuito
+                    <label htmlFor='evento_valor'> Evento Gratuito </label>
                     <input
                         type='checkbox'
                         name='evento_valor'
@@ -191,7 +190,6 @@ const EventsPage = () => {
                           }
                        }
                     />
-                  </label>
                 </fieldset>
                 
 
@@ -213,6 +211,7 @@ const EventsPage = () => {
 						name='evento_descricao_resumo'
 						id='evento_descricao_resumo'
 						className='evento_descricao_resumo'
+                        maxLength='45'
 						value={evento_descricao_resumo}
 						onChange={(event) => setDescricaoResumo(event.target.value)}
 						placeholder='Digite uma breve descrição sobre o evento'

@@ -33,7 +33,7 @@ const CategoryPage = () => {
                 <SideBar />
             </div>
             <div className='divright'>
-            <h2>Adicionar categoria</h2>
+            <h2>Adicionar categoria</h2><br />
             <form
                 onSubmit={addCategoryFunc}
             >

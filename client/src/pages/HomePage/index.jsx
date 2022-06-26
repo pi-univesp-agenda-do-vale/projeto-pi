@@ -21,18 +21,23 @@ function HomePage() {
 
     return (
         <div>
-            <h1>Home Page</h1>
-            <a href="/login">Login</a>
+            <div align='center'><h1>Agenda do Vale</h1></div>
 
-            {
-                events.map((event, index) => (
-                    <EventCard 
-                        index={index} 
-                        titulo={event.evento_titulo} 
-                        cidade={event.evento_cidade}>
-                    </EventCard>
-                ))
-            }
+            <a href="/login">Login</a> <br/><br/>
+            
+                <div className='divEventos'>
+                {
+                    events.map((event, index) => (
+                        <EventCard 
+                            index={index} 
+                            titulo={event.evento_titulo} 
+                            cidade={event.evento_cidade}
+                            local={event.evento_local}
+                            descricao_resumo={event.evento_descricao_resumo}>
+                        </EventCard>
+                    ))
+                }
+                </div>
             
 
         </div>

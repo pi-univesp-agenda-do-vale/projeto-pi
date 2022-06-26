@@ -61,7 +61,7 @@ const UsersPage = () => {
 
             <div className='divright'>
                 
-                <h2>Adicionar usuário</h2>
+                <h2>Adicionar usuário</h2><br />
             <form
                 onSubmit={addUserFunc}
             >

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../contexts/auth';
 import styled from "styled-components";
 import './styles.css'
+import { AiOutlineHome, AiOutlineDashboard } from 'react-icons/ai'
 
 function NavBar(){
 
@@ -25,8 +26,8 @@ function NavBar(){
         <div width='100%'>
         <div className='navbarleft'>
         <ul>
-            <li className='linavbar'><a href='/'>Home</a></li>
-            <li className='linavbar'><a href='/dashboard'>DashBoard</a></li>
+            <li className='linavbar'><a href='/'><AiOutlineHome/>Home</a></li>
+            <li className='linavbar'><a href='/dashboard'><AiOutlineDashboard/>DashBoard</a></li>
         </ul>
         </div>
         <div className='navbarright'>
