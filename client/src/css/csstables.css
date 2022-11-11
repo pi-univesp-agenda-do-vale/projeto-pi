@@ -1,0 +1,14 @@
+th {
+    background-color: rgb(161, 161, 161);
+}
+td, th {
+    text-align:left;
+    padding: 10px;
+}
+.trdata:hover{
+    background-color: rgb(209, 209, 209);
+}
+table {
+    width: 80%;
+    border-spacing: 0px; 
+}

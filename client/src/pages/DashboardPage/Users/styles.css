@@ -1,0 +1,13 @@
+.divleft {
+    float: left;
+    width: 20%;
+
+}
+.divright {
+    float: left;
+    width: 80%;
+}
+fieldset {
+    border: 0px;
+    padding: 10px;    
+}

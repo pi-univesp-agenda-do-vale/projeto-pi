@@ -1,0 +1,9 @@
+.divleft {
+    float: left;
+    width: 20%;
+
+}
+.divright {
+    float: left;
+    width: 85%;
+}
