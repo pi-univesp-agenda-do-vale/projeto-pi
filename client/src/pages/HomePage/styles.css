@@ -1,0 +1,15 @@
+
+ 
+h1{
+    display: inline-block;
+    text-decoration: #006750;
+    font-size: 90px;
+    text-shadow:0.1em 0.1em 0.2em rgb(108, 106, 106);
+    text-align:end;
+    text-decoration-line:underline;
+    text-decoration-color: hsl(167, 100%, 20%);
+    margin-block-end: 80px;
+    margin-block-start: -100px;
+    
+    }
+

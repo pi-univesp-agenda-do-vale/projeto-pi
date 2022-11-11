@@ -17,10 +17,15 @@ const LoginPage = () => {
     }
 
     return (
-        <div id="login">
-            
-            <h1 className="login-title">Login do sistema</h1>
-            
+        <div className="login">
+            <div viewBox='box'>
+            <svg viewBox="0 0 1440 180">
+                <path fill="#006750"  fill-opacity='85%' d="M0,0L480,96L960,256L1440,288L1440,0L960,0L480,0L0,0Z">
+                </path>
+            </svg>
+            <div width='100%'></div>
+            <h1 className='login-title1'>Agenda do Vale</h1>
+            <h2 className="login-title">Login do sistema</h2>            
             <form onSubmit={handleSubmit} className="login-form">
                 <fieldset className="login-form-field">
                     <label htmlFor="login-email">Email:</label>
@@ -48,7 +53,8 @@ const LoginPage = () => {
                     <button type="submit" className="login-button">Entrar</button>
                 </fieldset>
             </form>
-        </div>
+            </div>
+            </div> 
     );
 }
 

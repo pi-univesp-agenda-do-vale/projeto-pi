@@ -2,7 +2,7 @@ th {
     background-color: rgb(161, 161, 161);
 }
 td, th {
-    text-align: left;
+    text-align:left;
     padding: 10px;
 }
 .trdata:hover{

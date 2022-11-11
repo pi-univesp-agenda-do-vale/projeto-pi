@@ -23,8 +23,16 @@ function NavBar(){
 
     return (
         <>
+        <div className='box'>
+            <svg viewBox="0 0 1440 180">
+                <path fill="#006650" fill-opacity='85%' d="M0,0L480,96L960,256L1440,288L1440,0L960,0L480,0L0,0Z">
+                </path>
+            </svg>
+        </div>
+        
         <div width='100%'>
         <div className='navbarleft'>
+        <div className='title1'><h1>Agenda do Vale</h1></div>
         <ul>
             <li className='linavbar'><a href='/'><AiOutlineHome/>Home</a></li>
             <li className='linavbar'><a href='/dashboard'><AiOutlineDashboard/>DashBoard</a></li>

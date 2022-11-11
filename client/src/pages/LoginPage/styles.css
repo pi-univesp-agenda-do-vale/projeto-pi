@@ -1,18 +1,37 @@
 #login{
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    padding: 0 2rem;
+    min-height: 200vh;
+    padding: 20 2rem;
     background: #f1f1f1;
 }
 
+
+h1{
+    display: inline-block;
+    font-size: 90px;
+    text-shadow:0.1em 0.1em 0.2em rgb(108, 106, 106);
+    text-align:end;
+    text-decoration-line:underline;
+    text-decoration-color: #006650;
+    margin-block-start: -300px;
+    margin-block-end: -1.19%;
+ 
+}
+
+
+
 .login-title{
+    margin-top: 10px;
+    text-align: center;
     margin-bottom: 20px;
+
 }
 
 .login-form{
+    margin-left: 350px;
+    align-items: center;
     background: #fff;
     width: 100%;
     max-width: 480px;
@@ -26,6 +45,7 @@
     flex-direction: column;
     margin-bottom: 10px;
     border: none;
+    
 }
 
 .login-form-field label{

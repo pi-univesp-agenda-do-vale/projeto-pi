@@ -5,11 +5,26 @@
 .navbarleft{
   display: inline-block;
   width: 85%;
-   
+}  
+.title1{
+    display: inline-block;
+    font-size: 90px;
+    text-shadow:0.1em 0.1em 0.2em rgb(108, 106, 106);
+    text-align:end;
+    text-decoration-line:underline;
+    text-decoration-color: #006650;
+    margin-block-start: -300px;
+    margin-block-end: -1.19%;
+  
  }
+ 
+  
+
+
+
 .navbarright{
   display: inline-block;
-  width: 15%;
+  inline-size: 15%;
  }
  .divTable{
   width: 30%;

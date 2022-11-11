@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import EventCard from '../../components/EventCard';
 import { listEvents } from '../../services/api';
+import "./styles.css";
 
 function HomePage() {
 
@@ -21,7 +22,13 @@ function HomePage() {
 
     return (
         <div>
-            <div align='center'><h1>Agenda do Vale</h1></div>
+            <div className='box'>
+            <svg viewBox="0 0 1440 180">
+                <path fill="#006750" fill-opacity='85%' d="M0,0L480,96L960,256L1440,288L1440,0L960,0L480,0L0,0Z">
+                </path>
+            </svg></div>
+            
+            <div align='title1'><h1>Agenda do Vale</h1></div>
 
             <a href="/login">Login</a> <br/><br/>
             
@@ -38,10 +45,9 @@ function HomePage() {
                     ))
                 }
                 </div>
-            
-
-        </div>
-    )
+            </div>
+        
+        )
 }
 
 export default HomePage;
