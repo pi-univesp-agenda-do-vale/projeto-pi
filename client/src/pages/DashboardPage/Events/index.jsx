@@ -39,6 +39,7 @@ const EventsPage = () => {
 	const [evento_categoria_id, setCategoriaId] = useState("");
     const [evento_cidade, setCidade] = useState("");
     const [evento_titulo, setTitulo] = useState("");
+    const [evento_imagem, setImagem] = useState("");
     
 
     const addEventFunc = (event) => {
@@ -56,11 +57,12 @@ const EventsPage = () => {
 			&& evento_categoria_id !== ""
             && evento_cidade !== ""
             && evento_titulo !== ""
+            && evento_imagem !== ""
 			// OUTRAS VALIDAÇÕES DEVEM SER FEITAS E VERIFICADAS SE NECESSÁRIAS
         ) {
 
             // INSERINDO NO BANCO DE DADOS VIA API
-            if (addEvent(evento_data, evento_hora, evento_local, evento_descricao_resumo, evento_duracao, evento_valor, evento_descricao, evento_tema, evento_patrocinado, evento_usuario_id, evento_categoria_id, evento_cidade, evento_titulo)) {
+            if (addEvent(evento_data, evento_hora, evento_local, evento_descricao_resumo, evento_duracao, evento_valor, evento_descricao, evento_tema, evento_patrocinado, evento_usuario_id, evento_categoria_id, evento_cidade, evento_titulo, evento_imagem)) {
                 setData("");
 				setHora("");
                 setLocal("");
@@ -74,6 +76,7 @@ const EventsPage = () => {
                 setTitulo("");
                 setCategoriaId("");
                 //Verificar porque não está setando o select para primeira opção
+                setImagem("");
 				alert("Evento cadastrado com sucesso!");
 
             } else {
@@ -191,8 +194,6 @@ const EventsPage = () => {
                        }
                     />
                 </fieldset>
-                
-
                 <fieldset>
                     <label htmlFor='evento_tema'>Tema: </label>
                     <input
@@ -266,6 +267,18 @@ const EventsPage = () => {
                             ))
                             }
                     </select>
+                </fieldset>
+                <fieldset>
+                    <label htmlFor='evento_imagem'>Imagem: </label>
+                    <input
+                        type='text'
+                        name='evento_imagem'
+                        id='evento_imagem'
+                        className='evento_imagem'
+                        value={evento_imagem}
+                        onChange={(event) => setImagem(event.target.value)}
+						placeholder='Insira o link da imagem'
+                    />
                 </fieldset>
                 <fieldset>
                     <button type='submit'>Adicionar</button>

@@ -40,7 +40,8 @@ function HomePage() {
                             titulo={event.evento_titulo} 
                             cidade={event.evento_cidade}
                             local={event.evento_local}
-                            descricao_resumo={event.evento_descricao_resumo}>
+                            descricao_resumo={event.evento_descricao_resumo}
+                            imagem={event.evento_imagem}>
                         </EventCard>
                     ))
                 }

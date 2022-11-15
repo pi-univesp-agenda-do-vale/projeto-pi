@@ -6,7 +6,7 @@ function EventCard(props){
             <div class="divTable">
                 <div class="divTableBody">
                     <div class="divTableRow">
-                        <div class="divTableImg"><img src="https://via.placeholder.com/350x150" alt=''/></div>
+                        <div class="divTableImg"><img src={ props.imagem } width="350" height="150" alt=''/></div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableTitle">{props.titulo}</div>
