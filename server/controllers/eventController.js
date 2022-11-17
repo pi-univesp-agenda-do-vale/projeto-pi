@@ -23,3 +23,11 @@ exports.getEventById = async (req, res, next) => {
 
     res.send(event);
 }
+
+exports.deleteEventById = async (req, res, next) => {
+    let id = req.params.id;
+    let event = new Event();
+    event = await event.deleteEvent(id);
+
+    res.send(event);
+}

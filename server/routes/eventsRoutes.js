@@ -9,4 +9,7 @@ router.route("/").get(eventController.getAllEvents).post(eventController.createN
 
 router.route('/:id').get(eventController.getEventById);
 
+router.delete('/:id')
+//aqui também
+
 module.exports = router;

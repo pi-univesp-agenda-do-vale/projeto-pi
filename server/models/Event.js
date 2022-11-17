@@ -49,6 +49,13 @@ class Event{
         return eventList;
     }
 
+    async deleteEvent(id) {
+        let sql = "delete FROM evento WHERE evento_id = ?";
+        //aqui pra baixo nao sei se está certo
+        const [eventFound, _] = await db.execute(sql, [id]);
+        return eventFound;
+    }
+
 }
 
 module.exports = Event;
