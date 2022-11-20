@@ -18,6 +18,17 @@
   
  }
  
+ .logo{
+ 
+  position: absolute;
+  margin-top: -10px;
+  top: 0px;
+  right:20px;
+  width: 180px;
+  height: 180px;
+  background-color: rgba(0, 0, 255, 0);
+  
+} 
   
 
 

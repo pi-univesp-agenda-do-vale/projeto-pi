@@ -4,6 +4,8 @@ import styled from "styled-components";
 import './styles.css'
 import { AiOutlineHome, AiOutlineDashboard } from 'react-icons/ai'
 
+
+
 function NavBar(){
 
     const { logout } = useContext(AuthContext);
@@ -24,7 +26,9 @@ function NavBar(){
     return (
         <>
         <div className='box'>
-            <svg viewBox="0 0 1440 180">
+        <div class='logo'>
+            <img src={'logo.PNG'}  /></div>
+            <svg viewBox="0 0 1100 180">
                 <path fill="#006650" fill-opacity='85%' d="M0,0L480,96L960,256L1440,288L1440,0L960,0L480,0L0,0Z">
                 </path>
             </svg>
@@ -44,7 +48,7 @@ function NavBar(){
         </div>
 
         
-
+        
 
         </>
     )
