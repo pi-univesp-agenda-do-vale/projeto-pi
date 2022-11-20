@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import NavBarPublic from '../../components/NavBarPublic';
 
 import { AuthContext } from '../../contexts/auth';
 
@@ -19,13 +20,7 @@ const LoginPage = () => {
     return (
         
         <><div className="login">
-            <div viewBox='box'>
-                <svg viewBox="0 0 1440 180">
-                    <path fill="#006750" fill-opacity='85%' d="M0,0L480,96L960,256L1440,288L1440,0L960,0L480,0L0,0Z">
-                    </path>
-                </svg>
-                <h1 className='login-title1'>Agenda do Vale</h1>
-            </div>
+            <NavBarPublic />
         </div>
         
         <div>

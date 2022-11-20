@@ -9,6 +9,7 @@ import {
 
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
+import EventsHomePage from './pages/HomePage/event.jsx'
 import DashboardPage from './pages/DashboardPage';
 import UsersPage from "./pages/DashboardPage/Users";
 import UsersView from "./pages/DashboardPage/UsersView";
@@ -41,6 +42,7 @@ const AppRoutes = () => {
                 <Routes>
                     <Route exact path="/login" element={<LoginPage />} />
                     <Route exact path="/" element={<HomePage />} />
+                    <Route exact path="/evento" element={<EventsHomePage />} />
                     <Route exact path="/dashboard" element={<Private><DashboardPage /></Private>} />
                     <Route exact path="/dashboard/users" element={<Private><UsersPage /></Private>} />
                     <Route exact path="/dashboard/events" element={<Private><EventsPage /></Private>} />

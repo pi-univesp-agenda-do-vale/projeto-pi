@@ -7,13 +7,7 @@ import logo from '../ImageLogo/logo.PNG'
 
 
 
-function NavBar(){
-
-    const { logout } = useContext(AuthContext);
-
-    const handleLogout = () => {
-        logout();
-    }
+function NavBarPublic(){
 
     const Button = styled.button`
   padding: 4px 8px;
@@ -22,7 +16,6 @@ function NavBar(){
   cursor: pointer;
 `;
 
-    let user = JSON.parse(localStorage.getItem('user'));
 
     return (
         <>
@@ -38,14 +31,8 @@ function NavBar(){
         <div width='100%'>
         <div className='navbarleft'>
         <div className='title1'><h1>Agenda do Vale</h1></div>
-        <ul>
-            <li className='linavbar'><a href='/'><AiOutlineHome/>Home</a></li>
-            <li className='linavbar'><a href='/dashboard'><AiOutlineDashboard/>DashBoard</a></li>
-        </ul>
         </div>
-        <div className='navbarright'>
-        <p>Olá, { user.usuario_primeiro_nome } <Button onClick={ handleLogout }>Sair</Button> </p>
-        </div>
+        
         </div>
 
         
@@ -55,4 +42,4 @@ function NavBar(){
     )
 }
 
-export default NavBar;
+export default NavBarPublic;
