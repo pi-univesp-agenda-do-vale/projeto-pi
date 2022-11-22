@@ -2,11 +2,46 @@
   margin: 15px;
   display: inline-block;
 }
+.linavbar a{
+  text-decoration: none;
+  color: black;
+  font-size: 1.1em;
+}
+.linavbar a:hover{
+  color: darkgreen;
+  font-weight: bold;
+}
 
 .navbarleft{
   display: inline-block;
   width: 85%;
-}  
+}
+
+.nodot {
+list-style-type: none;
+}
+.nodot p {
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: Georgia, serif;
+}
+.nodot li {
+  padding: 5px;
+}
+
+.ulsidebar{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.ulsidebar a{
+  text-decoration: none;
+  color: black;
+}
+.ulsidebar a:hover{
+  color: darkgreen;
+  font-weight: bold;
+}
 
 .title1{
     display: inline-block;
@@ -115,7 +150,7 @@
 }
 .divTableTitle a:hover {
   color: darkgreen;
-  font-size: 1.025em;
+  font-weight: bold;
 }
 
 .divTableLocal{

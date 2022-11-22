@@ -20,6 +20,7 @@ margin-block-start: -100px;
 }
 .link:hover{
     color:darkgreen;
+    font-weight: bold;
 }
 
 .footer{
