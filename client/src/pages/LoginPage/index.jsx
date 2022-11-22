@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import NavBarPublic from '../../components/NavBarPublic';
+import Footer from "../../components/Footer"
 
 import { AuthContext } from '../../contexts/auth';
 
@@ -52,7 +53,9 @@ const LoginPage = () => {
                         <button type="submit" className="login-button">Entrar</button>
                     </fieldset>
                 </form>
-            </div></>
+            </div>
+            <Footer />
+        </>
              
     );
 }

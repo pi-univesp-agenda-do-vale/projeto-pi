@@ -6,10 +6,10 @@ function EventCard(props){
             <div class="divTable">
                 <div class="divTableBody">
                     <div class="divTableRow">
-                        <div class="divTableImg"><img src={ props.imagem } width="350" height="150" alt=''/></div>
+                        <div class="divTableImg"><a href={'evento/' + props.id}><img src={ props.imagem } width="350" height="150" alt=''/></a></div>
                     </div>
                     <div class="divTableRow">
-                        <div class="divTableTitle">{props.titulo}</div>
+                        <div class="divTableTitle"><a href={'evento/' + props.id}>{props.titulo}</a></div>
                     </div>
                     <div class="divTableRow">
                         <div class="divTableResume">{ props.descricao_resumo }</div>

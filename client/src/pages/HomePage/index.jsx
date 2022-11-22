@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import EventCard from '../../components/EventCard';
 import NavBarPublic from '../../components/NavBarPublic';
+import Footer from "../../components/Footer"
 import { listEvents } from '../../services/api';
 import "./styles.css";
 
@@ -23,15 +24,19 @@ function HomePage() {
 
     return (
         <div>
-            <NavBarPublic />
 
-            <a href="/login">Login</a> <br/><br/>
+            <NavBarPublic />
+            <div align="right">
+                <a href="/dashboard" className='link'>Acesso Restrito</a>
+            </div>
+            <br/>
             
-                <div className='divEventos'>
+                <div>
                 {
                     events.map((event, index) => (
                         <EventCard 
                             index={index} 
+                            id={event.evento_id}
                             titulo={event.evento_titulo} 
                             cidade={event.evento_cidade}
                             local={event.evento_local}
@@ -41,7 +46,9 @@ function HomePage() {
                     ))
                 }
                 </div>
-            </div>
+                <br/><br/>
+                <Footer />
+        </div>
         
         )
 }

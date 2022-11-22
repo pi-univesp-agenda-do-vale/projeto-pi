@@ -13,3 +13,15 @@ h1{
     
     }
 
+    .evento{
+        width: 70%;
+    }
+
+.link{
+    text-decoration: none;
+    color: black;
+}
+.link:hover{
+    color:darkgreen;
+}
+
