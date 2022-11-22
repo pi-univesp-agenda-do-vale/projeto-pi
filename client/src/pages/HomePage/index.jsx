@@ -30,6 +30,7 @@ function HomePage() {
                 <a href="/dashboard" className='link'>Acesso Restrito</a>
             </div>
             <br/>
+            <section>
             
                 <div>
                 {
@@ -47,7 +48,10 @@ function HomePage() {
                 }
                 </div>
                 <br/><br/>
-                <Footer />
+                <div className='footer'>
+                    <Footer />
+                </div>
+                </section>
         </div>
         
         )
