@@ -4,7 +4,8 @@ import "../../../css/csstables.css"
 import NavBar from '../../../components/NavBar';
 import SideBar from '../../../components/SideBar';
 import { listUsers } from '../../../services/api';
-import { AiOutlineEdit, AiOutlineSave } from "react-icons/ai";
+import { AiOutlineEdit } from "react-icons/ai";
+import { GrTrash } from "react-icons/gr"
 
 
 const UsersView = () => {
@@ -27,8 +28,7 @@ const UsersView = () => {
                 <SideBar />
             </div>
             <div className='divright'>
-                
-            <h2>Usuários Cadastrados</h2><br />
+                <h2>Usuários Cadastrados</h2><br />
                 <table>
                     <tr>
                         <th>ID</th>
@@ -36,15 +36,17 @@ const UsersView = () => {
                         <th>Email</th>
                         <th>Editar</th>
                     </tr>
-                    {users.map((user) => (
+                {users.map((user) => (
                     <tr className='trdata'>
                         <td> {user.usuario_id} </td>
                         <td> {user.usuario_primeiro_nome} {user.usuario_sobrenome} </td>
                         <td> {user.usuario_email} </td>
-                        <td><a href='#'><AiOutlineEdit /></a> <a href='#'><AiOutlineSave /></a></td>
+                        <td>
+                            <button href='#'><AiOutlineEdit /></button>
+                            <button href="#"><GrTrash /></button>
+                        </td>
                     </tr>
-                    ))
-                    }
+                    ))}
                 </table>
             </div>
         </>

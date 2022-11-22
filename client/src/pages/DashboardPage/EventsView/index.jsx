@@ -20,13 +20,8 @@ const EventsView = () => {
         })();
     }, []);
 
-    const remove = (e) => {
-        e.prevent.default()
-        deleteEvent('13')
-    }
-
     function deleteEvent(id){
-        fetch(`https://localhost:5000/events/${id}` ,{
+        fetch(`https://localhost:5000/events/delete/${id}` ,{
         method: 'DELETE',
         headers: {
             'Content-type': 'application/json'},
@@ -42,28 +37,26 @@ const EventsView = () => {
                 <SideBar />
             </div>
             <div className='divright'>
-
-            <h2>Eventos Cadastrados</h2><br />
-            <table>
-                <tr>
-                    <th>Título</th>
-                    <th>Local</th>
-                    <th>Data</th>
-                    <th>Editar</th>
-                </tr>
+                <h2>Eventos Cadastrados</h2><br />
+                <table>
+                    <tr>
+                        <th>Título</th>
+                        <th>Local</th>
+                        <th>Data</th>
+                        <th>Editar</th>
+                    </tr>
                 {events.map((event) => (
-                <tr className='trdata'>
-                    <td> {event.evento_titulo} </td>
-                    <td> {event.evento_local}, {event.evento_cidade} </td>
-                    <td> {event.evento_data} </td>
-                    <td>
-                        <a href='#'><AiOutlineEdit /></a>
-                        <button onClick={remove} ><GrTrash /></button>
-                    </td>
-                </tr>
-                ))
-                }
-            </table>
+                    <tr className='trdata'>
+                        <td> {event.evento_titulo} </td>
+                        <td> {event.evento_local}, {event.evento_cidade} </td>
+                        <td> {event.evento_data} </td>
+                        <td>
+                            <button href='#'><AiOutlineEdit /></button>
+                            <button onClick={deleteEvent(event.evento_id)} ><GrTrash /></button>
+                        </td>
+                    </tr>
+                ))}
+                </table>
             </div>
         </>
     )

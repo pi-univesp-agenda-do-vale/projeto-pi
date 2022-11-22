@@ -4,7 +4,8 @@ import "../../../css/csstables.css"
 import NavBar from '../../../components/NavBar';
 import SideBar from '../../../components/SideBar';
 import { listCategories } from '../../../services/api';
-import { AiOutlineEdit, AiOutlineSave } from "react-icons/ai";
+import { AiOutlineEdit } from "react-icons/ai";
+import { GrTrash } from "react-icons/gr"
 
 const CategoriesView = () => {
 
@@ -26,24 +27,22 @@ const CategoriesView = () => {
                 <SideBar />
             </div>
             <div className='divright'>
-            <h2>Categorias Cadastradas</h2><br />
-            <table>
-                <tr>
-                    <th>Nome</th>
-                    <th>Editar</th>
-                </tr>
+                <h2>Categorias Cadastradas</h2><br />
+                <table>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Editar</th>
+                    </tr>
                 {categories.map((category) => (
-                <tr className='trdata'>
-                    <td> {category.categoria_nome} </td>
-                    <td><a href='#'><AiOutlineEdit /></a> <a href='#'><AiOutlineSave /></a></td>
-                </tr>
-                ))
-                }
-            </table>
-
-
-
-            
+                    <tr className='trdata'>
+                        <td> {category.categoria_nome} </td>
+                        <td>
+                            <button href='#'><AiOutlineEdit /></button>
+                            <button href="#"><GrTrash /></button>
+                        </td>
+                    </tr>
+                ))}
+                </table>
             </div>
         </>
     )
