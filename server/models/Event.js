@@ -53,7 +53,6 @@ class Event{
         let sql = "delete FROM evento WHERE evento_id = ?";
         //aqui pra baixo nao sei se está certo
         const [eventFound, _] = await db.execute(sql, [id]);
-        return eventFound;
     }
 
 }
